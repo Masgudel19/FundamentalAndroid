@@ -1,6 +1,7 @@
 package com.aldiakhmad19.myintentapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveWithObject:Button=findViewById(R.id.btn_move_activity_object)
         btnMoveWithObject.setOnClickListener(this)
+
+        val btnDialPhone:Button=findViewById(R.id.btn_dial_number)
+        btnDialPhone.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -56,6 +60,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     // Metode putExtra() yang kita pilih saat ini adalah putExtra(String name, Parcelable value)
                 moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON,person)
                 startActivity(moveWithObjectIntent)
+            }
+
+            R.id.btn_dial_number->{
+                val phoneNumber ="085234634129"
+                // Intent(ACTION, Uri) pada konstruktor sewaktu menciptakan obyek Intent
+                // Variabel ACTION_DIAL menentukan intent filter dari aplikasi-aplikasi yang bisa menangani action tersebut.
+                // Uri adalah sebuah untaian karakter yang digunakan untuk mengidentifikasi nama, sumber, atau layanan di internet sesuai dengan RFC 2396.
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
+                startActivity(dialPhoneIntent)
             }
         }
     }
