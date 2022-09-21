@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveWithDataActivity:Button = findViewById(R.id.btn_move_activity_data)
         btnMoveWithDataActivity.setOnClickListener(this)
+
+        val btnMoveWithObject:Button=findViewById(R.id.btn_move_activity_object)
+        btnMoveWithObject.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -38,7 +41,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "DicodingAcademy Gudel")
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE,21)
                 startActivity((moveWithDataIntent))
+            }
 
+            R.id.btn_move_activity_object ->{
+                // sebuah obyek Person bernama person yang mana kelas tersebut adalah Parcelable.
+                val person = Person (
+                    "Akhmad Aldi",
+                    21,
+                    "akhmadaldi15@gmail.com",
+                    "Pasuruan"
+                )
+
+                val moveWithObjectIntent = Intent(this@MainActivity,MoveWithObjectActivity::class.java)
+                    // Metode putExtra() yang kita pilih saat ini adalah putExtra(String name, Parcelable value)
+                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON,person)
+                startActivity(moveWithObjectIntent)
             }
         }
     }
