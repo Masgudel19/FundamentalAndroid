@@ -6,8 +6,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var tvResult:TextView
+
+    // perlu mendaftarkan jenis kembalian ke sistem dengan menggunakan
+    // kode registerForActivityResult dengan parameter ActivityResultContract berupa ActivityResultContract.
+    // Hal ini untuk mendapatkan nilai kembalian setelah memanggil Activity baru.
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {result ->
+        if (result.resultCode == MoveForResultActivity.RESULT_CODE && result.data !=null){
+            val selectedValue =
+                result.data?.getIntExtra(MoveForResultActivity.EXTRA_SELECTED_VALUE,0)
+            tvResult.text = "Hasil : $selectedValue"
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,6 +41,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnDialPhone:Button=findViewById(R.id.btn_dial_number)
         btnDialPhone.setOnClickListener(this)
+
+        val btnMoveResult:Button = findViewById(R.id.btn_move_for_result)
+        btnMoveResult.setOnClickListener(this)
+
+        tvResult = findViewById(R.id.tv_result)
     }
 
     override fun onClick(v: View?) {
@@ -69,6 +92,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // Uri adalah sebuah untaian karakter yang digunakan untuk mengidentifikasi nama, sumber, atau layanan di internet sesuai dengan RFC 2396.
                 val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialPhoneIntent)
+            }
+
+            R.id.btn_move_for_result -> {
+                val moveForResultsIntent = Intent(this@MainActivity,MoveForResultActivity::class.java)
+                // menggunakan launch(intent) dari object ActivityResultLauncher
+                resultLauncher.launch(moveForResultsIntent)
             }
         }
     }
