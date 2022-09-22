@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         names.add("Akhmad")
         names.add("aldi")
-        names.add("bismillah")
+        names.add("bismillah Lulus")
 
     }
 
@@ -34,10 +34,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (v.id== R.id.btn_set_value) {
             Log.d("MainActivity",names.toString())
             val name = StringBuilder()
-            for (i in 0..3){
+            // java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+            // sebuah collection dimulai dari 0, maka item terakhirnya berada pada indeks ke 2.
+            // for (i in 0..3){
+
+            for (i in 0..2){
                 name.append(names[i]).append("\n")
             }
-            tvText.text=name.toString()
+            tvText.text= name.toString()
         }
     }
 }
