@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     // Eror NullPointerException muncul karena kita mencoba menekan button yang belum diinisiasi
     // (masih bernilai null)
-    private var btnSetValue:Button? =null
+    // private var btnSetValue:Button? =null
+
+    private lateinit var btnSetValue:Button
     private lateinit var tvText:TextView
 
     private var names = arrayListOf<String>()
@@ -22,8 +24,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         tvText = findViewById(R.id.tv_text)
+        // inisialisasi btn Set Value
+        btnSetValue = findViewById(R.id.btn_set_value)
 
-        btnSetValue!!.setOnClickListener(this)
+        // btnSetValue!!.setOnClickListener(this)
+
+        btnSetValue.setOnClickListener(this)
 
     }
 
