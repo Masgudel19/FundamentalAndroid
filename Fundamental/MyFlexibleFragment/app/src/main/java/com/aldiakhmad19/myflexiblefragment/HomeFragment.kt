@@ -28,6 +28,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-
+        if (v.id== R.id.btn_category){
+            val mCategoryFragment = CategoryFragment()
+            // Fragment menggunakan parentFragmentManager untuk mendapatkan FragmentManager dari Activity.
+            // Setelah mendapatkannya, Anda dapat memulai transaksi pergantian fragment.
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                // menggunakan method replace() dan bukan add() ketika ingin menempelkan sebuah fragment baru.
+                replace(R.id.frame_container,mCategoryFragment,CategoryFragment::class.java.simpleName)
+                // .addToBackStack(null) setelahnya? Kita menggunakannya karena objek fragment yang saat ini diciptakan masuk
+                // ke dalam sebuah fragment stack.  Nantinya ketika kita tekan tombol back, ia akan pop-out keluar dari stack
+                // dan menampilkan objek fragment sebelumnya HomeFragment.
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
