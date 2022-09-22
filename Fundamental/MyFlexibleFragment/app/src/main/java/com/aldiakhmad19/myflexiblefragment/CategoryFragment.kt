@@ -27,6 +27,8 @@ class CategoryFragment : Fragment(), View.OnClickListener {
 
             // menggunakan obyek bundle untuk mengirimkan data antar fragment.
             val mBundle = Bundle()
+
+            // metode setter and getter untuk mengirimkan parameter/variabel dari satu fragment ke fragment lainnya.
             mBundle.putString(DetailCategoryFragment.EXTRA_NAME, "Lifestyle")
             val description ="Kategori ini akan berisi produk-produk lifestyle"
 
@@ -34,7 +36,7 @@ class CategoryFragment : Fragment(), View.OnClickListener {
             mDetailCategoryFragment.description = description
 
             val mFragmentManager = parentFragmentManager
-            mFragmentManager?.beginTransaction()?.apply {
+            mFragmentManager?. beginTransaction()?.apply {
                 replace(R.id.frame_container,mDetailCategoryFragment,DetailCategoryFragment::class.java.simpleName)
                 addToBackStack(null)
                 commit()
