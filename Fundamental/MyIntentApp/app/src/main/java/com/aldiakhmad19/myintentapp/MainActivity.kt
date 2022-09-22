@@ -1,5 +1,6 @@
 package com.aldiakhmad19.myintentapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     // perlu mendaftarkan jenis kembalian ke sistem dengan menggunakan
     // kode registerForActivityResult dengan parameter ActivityResultContract berupa ActivityResultContract.
     // Hal ini untuk mendapatkan nilai kembalian setelah memanggil Activity baru.
+    @SuppressLint("SetTextI18n")
     private val resultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {result ->
