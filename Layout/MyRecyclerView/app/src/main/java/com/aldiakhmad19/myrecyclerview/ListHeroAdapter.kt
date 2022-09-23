@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class ListHeroAdapter (private val ListHero:ArrayList<Hero>): RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -27,7 +28,11 @@ class ListHeroAdapter (private val ListHero:ArrayList<Hero>): RecyclerView.Adapt
     // digunakan untuk menetapkan data yang ada ke dalam ViewHolder sesuai dengan posisinya dengan menggunakan listHero[position].
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (name,description,photo) = ListHero[position]
-        holder.imgPhoto.setImageResource(photo)
+        // Glide berfungsi untuk memuat gambar. Kita bisa dengan mudah untuk memuat gambar yang datanya berasal dari sebuah URL.
+        Glide.with(holder.itemView.context)
+            .load(photo)// URL Gambar
+            .circleCrop()// Mengubah Image menjadi Lingkaran
+            .into(holder.imgPhoto) // image view mana yang akan diterapkan
         holder.tvName.text = name
         holder.tvDescription.text = description
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(ListHero[holder.adapterPosition]) }
