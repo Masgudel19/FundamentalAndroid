@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5d499b4-07d2-484a-a718-b1c19987b5d5" name="Changes" comment="New Folder Kelas Fundamental Android" />
+    <list default="true" id="d5d499b4-07d2-484a-a718-b1c19987b5d5" name="Changes" comment="hapus" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +24,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Fundamental/LatihanActivityDanInputEvents" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -49,7 +49,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663747620096</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="hapus">
+      <created>1663954377125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663954377125</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -67,6 +74,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start Kelas Fundamental Android" />
     <MESSAGE value="New Folder Kelas Fundamental Android" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Folder Kelas Fundamental Android" />
+    <MESSAGE value="hapus" />
+    <option name="LAST_COMMIT_MESSAGE" value="hapus" />
   </component>
 </project>
